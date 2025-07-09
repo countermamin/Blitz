@@ -1,13 +1,7 @@
-# [1.12.0] - 2025-06-03
+# [1.12.1] - 2025-07-09
 
-#### ✨ Features & Enhancements
+#### ✨ UI Enhancements
 
-* 🎨 **UI/UX:** Some **enhancements to the Settings page** with cleaner design and improved interactivity
-* 🌐 **New Tabs:** Added **WARP** and **OBFS** management tabs to the settings panel for easier control
-* 🔍 **OBFS:**
-
-  * Added **OBFS status API endpoint**
-  * Introduced `--check` flag to the `manage_obfs` CLI tool
-  * Enabled **status checking** functionality to monitor OBFS state
-* 🔧 **normalsub:** Improved `edit_subpath` with **better error handling** and **efficient Caddy reload**
-* 📦 **Singbox:** Enhanced **Singbox template configuration** for better maintainability and compatibility
+* 📌 **Sticky Sidebar:** Sidebar now stays fixed when scrolling through long pages for easier navigation
+* 🃏 **Sticky Headers:** Card headers are now sticky with a sleek **bokeh blur** effect – better usability on settings and user lists
+* ⏎ **Login UX:** Pressing **Enter** now submits the login form properly for faster access
