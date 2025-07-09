@@ -89,7 +89,15 @@ body:not(.dark-mode) #darkModeIcon.fa-sun {
 
 /* --- Sidebar (Using Default Dark AdminLTE Theme) --- */
 
-body:not(.dark-mode) .main-sidebar { background-color: #343a40; }
+body:not(.dark-mode) .main-sidebar {
+  background-color: #343a40;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 250px;
+  height: 100vh;
+  z-index: 1050;
+}
 body:not(.dark-mode) .brand-link {
   border-bottom-color: rgba(255, 255, 255, 0.1);
 }
@@ -136,6 +144,13 @@ body:not(.dark-mode) .card-header {
   border-bottom: 1px solid var(--border-color-light);
   padding: 0.75rem 1.25rem;
   color: var(--text-dark); /* Ensure header text is dark */
+  position: sticky;
+  top: 0;
+  z-index: 10;
+  background: rgba(255, 255, 255, 0.75); /* semi-transparent for bokeh */
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px); /* Safari support */
+  transition: background 0.3s;
 }
 body:not(.dark-mode) .card-title {
   font-weight: 600;
@@ -280,7 +295,15 @@ body.dark-mode #darkModeIcon.fa-moon {
 }
 
 /* Dark Sidebar */
-body.dark-mode .main-sidebar { background-color: var(--dark-navy-deep) !important; }
+body.dark-mode .main-sidebar {
+  background-color: var(--dark-navy-deep) !important;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 250px;
+  height: 100vh;
+  z-index: 1050;
+}
 body.dark-mode .brand-link { border-bottom: 1px solid var(--dark-navy-accent) !important; }
 body.dark-mode .sidebar .nav-pills .nav-link { color: var(--dark-text-secondary); }
 body.dark-mode .sidebar .nav-pills .nav-link.active,
@@ -305,6 +328,12 @@ body.dark-mode .card-header {
   border-bottom: 1px solid var(--dark-navy-border) !important;
   color: var(--dark-text-primary);
   padding: 0.75rem 1.25rem;
+  position: sticky;
+  top: 0;
+  z-index: 10;
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px); /* Safari support */
+  transition: background 0.3s;
 }
 body.dark-mode .card-body { padding: 1.25rem; }
 
