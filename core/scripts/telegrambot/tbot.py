@@ -9,7 +9,8 @@ def send_welcome(message):
         markup = create_main_markup()
         bot.reply_to(message, "Welcome to the User Management Bot!", reply_markup=markup)
     else:
-        bot.reply_to(message, "Unauthorized access. You do not have permission to use this bot.")
+                markup = create_user_markup()
+        bot.reply_to(message, "Welcome! Please choose an option:", reply_markup=markup)
 
 def monitoring_thread():
     while True:
