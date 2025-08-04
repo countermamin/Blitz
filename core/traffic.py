@@ -82,7 +82,23 @@ def traffic_status(no_gui=False):
                 print("Error: Failed to parse existing users data JSON file.")
             return None
 
-    for user in users_data:
+   
+            # Reset traffic usage if reset interval has passed
+        current_date = datetime.datetime.now().date()
+        for user_id, user_info in users_data.items():
+            reset_interval = user_info.get("reset_interval_days")
+            last_reset_str = user_info.get("last_reset_date") or user_info.get("account_creation_date")
+            if reset_interval and last_reset_str:
+                try:
+                    last_reset_date = datetime.datetime.strptime(last_reset_str, "%Y-%m-%d").date()
+                except ValueError:
+                    # Skip if date format is invalid
+                    continue
+                if (current_date - last_reset_date).days >= reset_interval:
+                    user_info["upload_bytes"] = 0
+                    user_info["download_bytes"] = 0
+                    user_info["last_reset_date"] = current_date.strftime("%Y-%m-%d")
+for user in users_data:
         users_data[user]["status"] = "Offline"
 
     for user_id, status in online_status.items():
