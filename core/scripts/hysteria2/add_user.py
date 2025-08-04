@@ -88,8 +88,11 @@ def add_user(username, traffic_gb, expiration_days, password=None, creation_date
                 "max_download_bytes": traffic_bytes,
                 "expiration_days": expiration_days,
                 "account_creation_date": creation_date,
-                "blocked": False
+                "blocked": False,
+                        "reset_interval_days": 30,
+            "last_reset_date": creation_date,
             }
+            
 
             f.seek(0)
             json.dump(users_data, f, indent=4)
@@ -114,4 +117,5 @@ if __name__ == "__main__":
     creation_date = sys.argv[5] if len(sys.argv) > 5 else None
 
     exit_code = add_user(username, traffic_gb, expiration_days, password, creation_date)
+
     sys.exit(exit_code)
